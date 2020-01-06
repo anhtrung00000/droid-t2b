@@ -21,13 +21,13 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sg.t2b.R;
-import com.sg.t2b.ui.login.LoginViewModel;
-import com.sg.t2b.ui.login.LoginViewModelFactory;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -40,7 +40,8 @@ public class LoginActivity extends AppCompatActivity {
             Window w = getWindow();
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.fragment_login);
+        ButterKnife.bind(this);
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
         getSupportActionBar().hide();
@@ -124,6 +125,11 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         });
+    }
+    @OnClick(R.id.btn_login)
+    public void login(View view) {
+        // TODO submit data to server...
+
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
