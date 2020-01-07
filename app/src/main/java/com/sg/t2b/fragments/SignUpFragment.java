@@ -28,4 +28,9 @@ public class SignUpFragment extends Fragment {
     {
         Navigator.Instance().popBack();
     }
+    @OnClick(R.id.btn_signup)
+    public void signUp()
+    {
+        Navigator.Instance().pushFragment(new HomeFragment());
+    }
 }

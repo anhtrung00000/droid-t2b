@@ -201,11 +201,10 @@
                 android:text="Tôi đồng ý với tất cả điều khoản T2B ..."/>
         </LinearLayout>
         <Button
-            android:id="@+id/login"
+            android:id="@+id/btn_signup"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
-            android:enabled="false"
             android:textSize="18sp"
             android:background="@drawable/roundedbutton"
             android:textColor="@android:color/white"

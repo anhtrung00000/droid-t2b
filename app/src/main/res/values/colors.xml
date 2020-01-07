@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+<!--    app color-->
+    <color name="mainColor">#5a1146</color>
+    <color name="subMainColor">#494783</color>
+<!--    calling-->
+    <color name="optionColor">#4d3a74</color>
+    <color name="endCallColor">#da2727</color>
 </resources>
