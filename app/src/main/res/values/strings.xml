@@ -10,4 +10,12 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="signin_title">ĐĂNG NHẬP</string>
+    <string name="post">Đăng bài</string>
+    <string name="news">Tin tức</string>
+    <string name="contract">Hợp đồng hoa hồng tư vấn</string>
+    <string name="website">Website</string>
+    <string name="history">Lịch sử giao dịch</string>
+    <string name="document">Lưu tài liệu</string>
+    <string name="tutorial">Hướng dẫn</string>
+    <string name="fanpage">Fanpage</string>
 </resources>
