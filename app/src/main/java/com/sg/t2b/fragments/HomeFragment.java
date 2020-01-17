@@ -1,15 +1,23 @@
 package com.sg.t2b.fragments;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.sg.t2b.Navigator;
 import com.sg.t2b.R;
 import com.sg.t2b.adapter.SliderAdapterExample;
 import com.smarteist.autoimageslider.IndicatorAnimations;
@@ -20,6 +28,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HomeFragment extends Fragment {
+    @BindView(R.id.ll_consulting)
+    LinearLayout llConsulting;
+    @BindView(R.id.iv_consulting)
+    ImageView ivConsulting;
     @BindView(R.id.imageSlider)
     SliderView sliderView;
     @Nullable
@@ -39,7 +51,25 @@ public class HomeFragment extends Fragment {
         sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         sliderView.setIndicatorSelectedColor(Color.WHITE);
         sliderView.setIndicatorUnselectedColor(Color.GRAY);
-        sliderView.setScrollTimeInSec(4); //set scroll delay in seconds :
+        sliderView.setScrollTimeInSec(1); //set scroll delay in seconds :
         sliderView.startAutoCycle();
+
+        //set up llConsulting
+        ivConsulting.setClickable(true);
+        ivConsulting.setEnabled(true);
+        ivConsulting.setOnClickListener(v -> {
+            Navigator.Instance().pushFragment(ConsultingFragment.Instant());
+        });
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window w = getActivity().getWindow();
+            if (!hidden) {//dang hien thi
+                w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+            }
+        }
     }
 }

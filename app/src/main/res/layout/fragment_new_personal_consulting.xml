@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/background_gradient">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/toolbarColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:enabled="true"
+            android:src="@drawable/path_12"
+            android:background="@android:color/transparent"
+            android:padding="1dp"
+            android:scaleType="fitCenter"/>
+        <TextView
+            android:layout_marginLeft="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tạo đơn tư vấn cá nhân"
+            android:textColor="@android:color/white"
+            android:id="@+id/toolbar_title"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="18sp"/>
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16.7sp"
+                android:textColor="#ffffff"
+                android:letterSpacing="0.04"
+                android:text="Tiêu đề(80 kí tự):"
+                />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#33ffffff"
+                    android:fontFamily="@font/roboto_light"
+                    android:hint="Nguyễn Văn A"
+                    android:inputType="textPhonetic"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingLeft="10dp"
+                    android:background="#79597f"
+                    android:selectAllOnFocus="true"/>
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16.7sp"
+                android:layout_marginTop="10dp"
+                android:textColor="#ffffff"
+                android:letterSpacing="0.04"
+                android:lineSpacingExtra="5.3sp"
+                android:text="Mô tả ngắn gọn về nhu cầu tư vấn của bạn*: (dưới 200 ký tự không bao gồm ký tự số)"
+                />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/et_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:textColorHint="#33ffffff"
+                    android:fontFamily="@font/roboto_light"
+                    android:hint="Nguyễn Văn A"
+                    android:inputType="textPhonetic"
+                    android:gravity="start"
+                    android:paddingTop="5dp"
+                    android:background="#79597f"
+                    android:selectAllOnFocus="true"/>
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16.7sp"
+                android:layout_marginTop="10dp"
+                android:textColor="#ffffff"
+                android:letterSpacing="0.04"
+                android:fontFamily="@font/roboto_light"
+                android:lineSpacingExtra="7sp"
+                android:text="*T2B không phải tổng đài vì vậy việc khóa tài khoản, tra cứu lịch sử giao dịch …nhân viên tư vấn sẽ chuyển đến bộ phận phụ trách. \n\n*T2B không phải ứng dụng cho vay, việc ký hợp đồng tín dụng sẽ thực hiện tại ngân hàng.
+                 \n\n*T2B không phải cò môi giới hồ sơ cho ngân hàng, vì T2B thu phí để duy trì ứng dụng, truyền thông
+                và chăm sóc cho khách hàng và nhân viên ngân hàng sau này.
+
+                 \n\n*T2B không bán thông tin của khách hàng cho bên thứ ba, thông tin cá nhân của khách hàng được
+                ẩn danh cho đến khi khách hàng đồng ý cung cấp cho nhân viên tư vấn.\n\nMọi thông tin tư vấn giữa bạn với nhân viên ngân hàng được bảo mật tuyệt đối. Nếu bạn phát hiện người sử dụng là khách hàng hay nhân viên ngân hàng  gây rối hãy báo cáo lại chúng tôi ở tính năng trợ giúp."
+                />
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:textSize="18sp"
+                android:background="@drawable/roundedbutton"
+                android:textColor="@android:color/white"
+                android:text="Lưu"
+                android:paddingRight="20dp"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="20dp"
+                android:drawableRight="@drawable/go"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -207,12 +207,14 @@
                             />
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/ll_consulting"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="vertical"
                         android:gravity="center_vertical">
                         <ImageView
+                            android:id="@+id/iv_consulting"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:layout_gravity="center_horizontal"

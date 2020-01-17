@@ -9,4 +9,7 @@
 <!--    calling-->
     <color name="optionColor">#4d3a74</color>
     <color name="endCallColor">#da2727</color>
+<!--    navigation color-->
+    <color name="statusBarColor">#341247</color>
+    <color name="toolbarColor">#3f055f</color>
 </resources>
