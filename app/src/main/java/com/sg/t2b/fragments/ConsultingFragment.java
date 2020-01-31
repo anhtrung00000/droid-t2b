@@ -1,6 +1,5 @@
 package com.sg.t2b.fragments;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,9 +22,6 @@ import com.sg.t2b.Navigator;
 import com.sg.t2b.R;
 import com.sg.t2b.adapter.ConsultViewAdapter;
 import com.sg.t2b.adapter.GridSpacingItemDecoration;
-import com.skydoves.powermenu.MenuAnimation;
-import com.skydoves.powermenu.PowerMenu;
-import com.skydoves.powermenu.PowerMenuItem;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,6 +36,10 @@ public class ConsultingFragment extends Fragment {
     ImageButton btnBack;
     @BindView(R.id.btn_add)
     ImageButton btnAdd;
+    @BindView(R.id.ln_transparent)
+    LinearLayout lnTransparent;
+    @BindView(R.id.ln_subMain)
+    LinearLayout lnSubMain;
     private static ConsultingFragment _instant;
     public static ConsultingFragment Instant() {
         if(_instant == null)
@@ -55,6 +56,8 @@ public class ConsultingFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        lnTransparent.setVisibility(View.GONE);
+        lnSubMain.setVisibility(View.GONE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getActivity().getWindow();
             w.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -75,37 +78,57 @@ public class ConsultingFragment extends Fragment {
         rvConsulting.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
     }
 
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getActivity().getWindow();
-            if (hidden) {
-                w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            }
-            else {
-                w.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            }
-        }
-    }
+//    @Override
+//    public void onHiddenChanged(boolean hidden) {
+//        super.onHiddenChanged(hidden);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            Window w = getActivity().getWindow();
+//            if (hidden) {
+//                w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//            }
+//            else {
+//                w.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//            }
+//        }
+//    }
     @OnClick(R.id.btn_back)
     public void onBack() {
         Navigator.Instance().popBack();
     }
     @OnClick(R.id.btn_add)
     public void onAdd() {
-        PowerMenu powerMenu = new PowerMenu.Builder(getContext())
-                .setHeaderView(R.layout.layout_consulting_dialog_header) // header used for title
-                .setFooterView(R.layout.layout_consulting_dialog_header) // footer used for yes and no buttons
-                .addItem(new PowerMenuItem("This is DialogPowerMenu", false)) // this is body
-                .setLifecycleOwner(this)
-                .setAnimation(MenuAnimation.SHOW_UP_CENTER)
-                .setMenuRadius(10f)
-                .setMenuShadow(10f)
-                .setWidth(800)
-                .setSelectedEffect(false)
-                .build();
-        powerMenu.showAsAnchorCenter(this.getView());
-
+        lnTransparent.setVisibility(View.VISIBLE);
+        lnSubMain.setVisibility(View.VISIBLE);
+//        lnSubMain.animate()
+//                .translationY(0)
+//                .setDuration(500);
+    }
+    @OnClick(R.id.ln_subMain)
+    public void onDissmissPopup() {
+//        lnSubMain.animate()
+//                .translationY(lnSubMain.getHeight())
+//                .setDuration(500)
+//                .setListener(new AnimatorListenerAdapter() {
+//                    @Override
+//                    public void onAnimationEnd(Animator animation) {
+//                        super.onAnimationEnd(animation);
+//                        lnTransparent.setVisibility(View.GONE);
+//                        lnSubMain.setVisibility(View.GONE);
+//                    }
+//                });
+        lnTransparent.setVisibility(View.GONE);
+        lnSubMain.setVisibility(View.GONE);
+    }
+    @OnClick(R.id.btn_personal)
+    public void onPersonal() {
+        Navigator.Instance().pushFragment(NewConsultingFragment.Instance(true));
+        lnTransparent.setVisibility(View.GONE);
+        lnSubMain.setVisibility(View.GONE);
+    }
+    @OnClick(R.id.btn_bussiness)
+    public void onBuzz() {
+        Navigator.Instance().pushFragment(NewConsultingFragment.Instance(false));
+        lnTransparent.setVisibility(View.GONE);
+        lnSubMain.setVisibility(View.GONE);
     }
 }

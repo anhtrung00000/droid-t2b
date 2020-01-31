@@ -4,6 +4,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.sg.t2b.fragments.HomeFragment;
+
 public class Navigator {
     private static Navigator _instance;
     private static MainActivity _mainActivity;
@@ -11,6 +13,7 @@ public class Navigator {
     private FragmentManager fragmentManager;
     private int enter_animation = 0;
     private int exit_animation = 0;
+    private Fragment currentFragment;
 
     public FragmentManager getFragmentManager()
     {
@@ -23,6 +26,16 @@ public class Navigator {
 
     public void setMainActivity(MainActivity mainActivity) {
         _mainActivity = mainActivity;
+        this.getFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                currentFragment = getFragmentManager().findFragmentById(R.id.mainLayout);
+                if (currentFragment instanceof HomeFragment) {
+                    get_mainActivity().setupStatusBar();
+                }
+            }
+        });
+
     }
 
     public static MainActivity get_mainActivity() {
@@ -88,6 +101,10 @@ public class Navigator {
             }
         }
         ft.commit();
+    }
+
+    public Fragment getCurrentFragment() {
+        return this.currentFragment;
     }
 
     private void navigateBetweenFragmentsNoneRoot(Fragment fragment) {

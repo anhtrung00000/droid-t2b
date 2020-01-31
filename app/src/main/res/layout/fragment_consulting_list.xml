@@ -56,32 +56,40 @@
             android:layout_gravity="center"/>
     </androidx.cardview.widget.CardView>
     <LinearLayout
+        android:id="@+id/ln_transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#757575"
         android:alpha="0.33"
+        android:orientation="vertical"
         />
     <LinearLayout
+        android:id="@+id/ln_subMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clickable="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:orientation="vertical">
         <LinearLayout
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="150dp"
             android:orientation="vertical"
             android:paddingTop="30dp"
+            android:clickable="false"
             android:background="@drawable/bg_popup">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="15sp"
                 android:fontFamily="@font/roboto_medium"
                 android:textStyle="normal"
                 android:textColor="#000000"
                 android:layout_gravity="center_horizontal"
                 android:letterSpacing="0.04"
+                android:textAlignment="center"
                 android:text="Bạn cần tư vấn về cá nhân hay doanh nghiệp?"
                 />
             <LinearLayout
@@ -92,6 +100,7 @@
                 android:paddingRight="20dp"
                 android:orientation="horizontal">
                 <Button
+                    android:id="@+id/btn_personal"
                     android:layout_width="100dp"
                     android:layout_height="35dp"
                     android:background="@drawable/bg_agree_consulting_btn"
@@ -105,6 +114,7 @@
                     android:layout_weight="1" >
                 </Space>
                 <Button
+                    android:id="@+id/btn_bussiness"
                     android:layout_width="120dp"
                     android:layout_gravity="end"
                     android:layout_height="35dp"

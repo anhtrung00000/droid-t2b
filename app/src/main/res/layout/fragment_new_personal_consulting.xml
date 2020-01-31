@@ -75,7 +75,7 @@
                 android:textColor="#ffffff"
                 android:letterSpacing="0.04"
                 android:lineSpacingExtra="5.3sp"
-                android:text="Mô tả ngắn gọn về nhu cầu tư vấn của bạn*: (dưới 200 ký tự không bao gồm ký tự số)"
+                android:text="Mô layout_widthtả ngắn gọn về nhu cầu tư vấn của bạn*: (dưới 200 ký tự không bao gồm ký tự số)"
                 />
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -86,12 +86,14 @@
                     android:id="@+id/et_description"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingLeft="10dp"
                     android:textColorHint="#33ffffff"
                     android:fontFamily="@font/roboto_light"
                     android:hint="Nguyễn Văn A"
                     android:inputType="textPhonetic"
                     android:gravity="start"
-                    android:paddingTop="5dp"
                     android:background="#79597f"
                     android:selectAllOnFocus="true"/>
             </androidx.cardview.widget.CardView>
