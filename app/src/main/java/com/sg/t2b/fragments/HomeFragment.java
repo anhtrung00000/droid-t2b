@@ -26,6 +26,7 @@ import com.smarteist.autoimageslider.SliderView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class HomeFragment extends Fragment {
     @BindView(R.id.ll_consulting)
@@ -60,6 +61,14 @@ public class HomeFragment extends Fragment {
         ivConsulting.setOnClickListener(v -> {
             Navigator.Instance().pushFragment(ConsultingFragment.Instant());
         });
+    }
+    @OnClick(R.id.ln_offline_staff)
+    public void gotoOfflineList() {
+        Navigator.Instance().pushFragment(new OfflineStaffFragment());
+    }
+    @OnClick(R.id.ib_notification)
+    public void gotoNotifications() {
+        Navigator.Instance().pushFragment(new NotificationFragment());
     }
 
     @Override
